@@ -1,0 +1,138 @@
+html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,a,abbr,acronym,em,img,ol,ul,li {border: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;margin: 0;padding: 0;}
+
+* { /*CSS Garden*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #3f3d3a;
+    overflow: hidden;
+    text-align: center;
+}
+li a{
+    display: block;
+    padding: 8px;
+    color:whitesmoke;
+    text-decoration: none;
+
+}
+li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+li:hover{
+    background-color: #006769;
+}
+  
+#lab{
+    display:inline-block ;
+    width: 100px;
+}
+ul{
+    list-style-type: none;
+    background-color: #55AD9B;
+    align-items: center;
+    justify-content: center;
+}
+html{
+    
+    background: #D8EFD3;
+    background-size: 22em;
+}
+@media only screen and (min-width:769px){
+    ul{
+        display: flex;
+
+    }
+    html {
+
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width:768px){
+    html {
+        font-size: 10px;
+    }
+    .content{
+        display: grid;
+        grid-auto-columns: auto;
+    }
+}
+
+#menu{
+    float: right;
+    
+}
+.current{
+    background-color: #006769;
+}
+.prompt h1{
+    font-size: 50px;
+    margin: 20px;
+    
+}
+.identify{
+    display: inline-block;
+    border-radius: 10px;
+    border: solid 1px black;
+    background: #F1F8E8;
+    margin:10px;
+    padding: 10px;
+    border: solid 5px #006769;
+}
+input[type=text], [type=password], [type=email]{
+    /*border:none;*/
+    background-color: whitesmoke;
+    margin-bottom: 20px;
+    border: solid 2px #006769;
+    border-radius: 10px;
+}
+label{
+    margin-bottom: 20px;
+}
+
+table{/*W3S*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.edit{
+    display: inline-block;
+}
+#table{
+    font-family: 'Courier New', Courier, monospace;
+    padding:5px;
+    border: solid 2px #006769;
+    border-radius: 10px;
+    font-size: 15px;
+}
+input[type=button],[type=submit],.button{/*W3S*/
+    font-family: monospace;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border:none;
+    background: #55AD9B;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+#menu{
+    font-family: monospace;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border:none;
+    background: #006769;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+nav{
+    margin-top:20px;
+    margin-bottom: 30px;
+}
