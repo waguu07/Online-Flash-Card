@@ -16,8 +16,7 @@ $username = $_SESSION['username'];
         <style>
 
             
-            .collapsible {
-
+            .collapsible {/*How TO - Collapse W3school*/
                 font-family: monospace;
                 text-decoration: none;
                 font-weight: bold;
@@ -34,11 +33,11 @@ $username = $_SESSION['username'];
                 font-size: 20px;
             }
 
-            .active, .collapsible:hover {
+            .active, .collapsible:hover {/*How TO - Collapse W3school*/
                 background-color: #006769; 
             }
 
-            .content {
+            .content {/*How TO - Collapse W3school*/
                 padding: 0 18px;
                 display: none;
                 overflow: hidden;
@@ -93,7 +92,7 @@ $username = $_SESSION['username'];
                     extract($row);
                     echo '<p>'.$user_id.'</p>
                     <button type="button" class="collapsible">'.$table_name.'</button>
-                    <div class="content">';
+                    <div class="content">';//How TO - Collapse W3school
                     $ans = 'table'.$deck_id;
                     $table_query = "SELECT * FROM $ans";
                     $table_result = mysqli_query($db,$table_query) or die(mysqli_error($db));
@@ -114,7 +113,7 @@ $username = $_SESSION['username'];
             }
         }
         ?>
-        <script>
+        <script>/*How TO - Collapse W3school*/
         var coll = document.getElementsByClassName("collapsible");
         var i;
 
