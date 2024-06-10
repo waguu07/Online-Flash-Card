@@ -16,7 +16,7 @@ $username = $_SESSION['username'];
         <style>
 
 
-            .flip-card {
+            .flip-card {/*How To - Flip Card W3school*/
                 background-color: transparent;
                 width: 300px;
                 height: 50px;
@@ -25,7 +25,7 @@ $username = $_SESSION['username'];
                 display: inline-block;
             }
 
-            .flip-card-inner {
+            .flip-card-inner {/*How To - Flip Card W3school*/
                 position: relative;
                 width: 100%;
                 height: 100%;
@@ -35,11 +35,11 @@ $username = $_SESSION['username'];
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             }
 
-            .flip-card:hover .flip-card-inner {
+            .flip-card:hover .flip-card-inner {/*How To - Flip Card W3school*/
                 transform: rotateY(180deg);
             }
 
-            .flip-card-front, .flip-card-back {
+            .flip-card-front, .flip-card-back {/*How To - Flip Card W3school*/
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -47,12 +47,12 @@ $username = $_SESSION['username'];
                 backface-visibility: hidden;
             }
 
-            .flip-card-front {
+            .flip-card-front {/*How To - Flip Card W3school*/
                 background-color: #95D2B3;
                 color: black;
             }
 
-            .flip-card-back {
+            .flip-card-back {/*How To - Flip Card W3school*/
                 background-color: #55AD9B;
                 color: white;
                 transform: rotateY(180deg); 
@@ -88,7 +88,7 @@ $username = $_SESSION['username'];
         <form action="main_page.php" method="post">
             <label for="table">Select Table: </label>
             <select name="table" id="table" required>
-                <option value ="" selected disabled hidden>Choose a Deck</option> <!--taken from internet-->
+                <option value ="" selected disabled hidden>Choose a Deck</option> <!--Stack Overflow: How can I set the default value for an HTML <select> element?-->
                 <?php
                 $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
                 mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
@@ -97,7 +97,7 @@ $username = $_SESSION['username'];
 
                 if ($result->num_rows > 0){
                     while($row = mysqli_fetch_array($result)) {
-                        echo "<option value=\"$row[0]\">$row[0]</option>";
+                        echo "<option value=\"$row[0]\">$row[0]</option>";//How TO - Custom Select Box W3School
                     }
                 }
 
@@ -120,7 +120,7 @@ $username = $_SESSION['username'];
                     $word_data[] = $word_row;
                 }
 
-                foreach ($word_data as $w){
+                foreach ($word_data as $w){//How To - Flip Card W3school
                     echo '<div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
