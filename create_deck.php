@@ -57,7 +57,7 @@ $username = $_SESSION['username'];
                 $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
                 mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
 
-                $query = "SELECT deck_name FROM deck_info WHERE EXISTS(
+                $query = "SELECT deck_name FROM deck_info WHERE EXISTS(/*SQL EXISTS Operator W3School*/
                     SELECT deck_name FROM deck_info WHERE deck_name = '$deckname')                   
                 ";
                 $result = mysqli_query($db, $query) or die(mysqli_error($db));    
@@ -75,7 +75,7 @@ $username = $_SESSION['username'];
             $row = mysqli_fetch_assoc($result);
             $ans = $row["deck_id"];
             $ans = 'table' . $ans;
-            $query = "CREATE TABLE $ans (
+            $query = "CREATE TABLE $ans (/*SQL PRIMARY KEY Constraint W3School*/
                     word_id INT AUTO_INCREMENT PRIMARY KEY,
                     word_front VARCHAR(255) NOT NULL,
                     word_back VARCHAR(255) NOT NULL
