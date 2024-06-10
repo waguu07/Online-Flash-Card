@@ -40,7 +40,7 @@
                         $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
                         mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
 
-                        $query = "SELECT user_id FROM login_info WHERE EXISTS(
+                        $query = "SELECT user_id FROM login_info WHERE EXISTS(/*SQL EXISTS Operator W3School*/
                             SELECT user_id FROM login_info WHERE user_id = '$id')                   
                         ";
                         $result = mysqli_query($db, $query) or die(mysqli_error($db));    
