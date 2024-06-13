@@ -9,8 +9,8 @@ html,body,div,span,object,h1,h2,h3,h4,h5,h6,p,a,abbr,acronym,em,img,ol,ul,li {bo
 body {
     font-family: 'Courier New', Courier, monospace;
     color: #3f3d3a;
-    overflow: hidden;
     text-align: center;
+    overflow: visible;
 }
 li a{
     display: block;
@@ -84,7 +84,6 @@ html{
     border: solid 5px #006769;
 }
 input[type=text], [type=password], [type=email]{
-    /*border:none;*/
     background-color: whitesmoke;
     margin-bottom: 20px;
     border: solid 2px #006769;
@@ -135,4 +134,7 @@ input[type=button],[type=submit],.button{/*CSS Buttons W3School*/
 nav{
     margin-top:20px;
     margin-bottom: 30px;
+}
+.required{
+    color: red;
 }
