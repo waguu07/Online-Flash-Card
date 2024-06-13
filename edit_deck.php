@@ -4,7 +4,6 @@ if(!isset($_SESSION['authuser'])){
     header('Location: login.php');
 }
 $username = $_SESSION['username'];
-
 ?>
 <!DOCTYPE html>
 <html lang= "en">
@@ -14,7 +13,6 @@ $username = $_SESSION['username'];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <style>
-
             .collapsible {/*How TO - Collapse W3school*/
                 background-color: #55AD9B;
                 color: white;
@@ -26,8 +24,6 @@ $username = $_SESSION['username'];
                 outline: none;
                 font-size: 15px;
             }
-
-
             .content {/*How TO - Collapse W3school*/
                 padding: 0 18px;
    
@@ -49,8 +45,7 @@ $username = $_SESSION['username'];
             <script>
                 function SignOut(){
                     window.location = "logout.php";
-                }
-                
+                }      
             </script>
         </h1>
         </header>
@@ -63,24 +58,22 @@ $username = $_SESSION['username'];
                 <li><a href="edit_profile.php">Edit Profile</a></li>
             </ul>
         </nav>
-
         <form action="edit_deck.php" method="post">
             <label for="table">Select Table: </label>
-            <select name="table" id="table" required>
-                <option value ="" selected disabled hidden>Choose a Deck</option> <!--Stack Overflow: How can I set the default value for an HTML <select> element?-->
-                <?php
-                $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
-                mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
-                $query = "SELECT deck_name FROM deck_info WHERE user_id = '$username'";
-                $result = mysqli_query($db,$query) or die(mysqli_error($db));
-                if ($result->num_rows > 0){
-                    while($row = mysqli_fetch_array($result)) {
-                        echo "<option value=\"$row[0]\">$row[0]</option>";//HowTO - Custom Select Box W3School 
+                <select name="table" id="table" required>
+                    <option value ="" selected disabled hidden>Choose a Deck</option> <!--How TO - Collapse W3school-->
+                    <?php
+                    $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
+                    mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
+                    $query = "SELECT deck_name FROM deck_info WHERE user_id = '$username'";
+                    $result = mysqli_query($db,$query) or die(mysqli_error($db));
+                    if ($result->num_rows > 0){
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "<option value=\"$row[0]\">$row[0]</option>";
+                        }
                     }
-                }
-
-                ?>
-            </select>
+                    ?>
+                </select>
             <input type="submit" value="Select" name ="select">
         </form>
         <?php
@@ -142,7 +135,7 @@ $username = $_SESSION['username'];
                 }
             ?>
         </div>
-        <p class="collapsible">Remove Word</p><!--How TO - Collapse W3school-->
+        <p class="collapsible">Remove Word</p>
         <div class="content">
             <form class= "edit" action="" method="post">
                 <input type="text" name="id" placeholder="ID">
@@ -159,6 +152,5 @@ $username = $_SESSION['username'];
                 }
             ?>
         </div>
-
     </body>
 </html>
