@@ -4,7 +4,6 @@ if(!isset($_SESSION['authuser'])){
     header('Location: login.php');
 }
 $username = $_SESSION['username'];
-
 ?>
 <!DOCTYPE html>
 <html lang= "en">
@@ -14,8 +13,6 @@ $username = $_SESSION['username'];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <style>
-
-
             .flip-card {/*How To - Flip Card W3school*/
                 background-color: transparent;
                 width: 300px;
@@ -24,7 +21,6 @@ $username = $_SESSION['username'];
                 margin: 10px;
                 display: inline-block;
             }
-
             .flip-card-inner {/*How To - Flip Card W3school*/
                 position: relative;
                 width: 100%;
@@ -34,11 +30,9 @@ $username = $_SESSION['username'];
                 transform-style: preserve-3d;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             }
-
             .flip-card:hover .flip-card-inner {/*How To - Flip Card W3school*/
                 transform: rotateY(180deg);
             }
-
             .flip-card-front, .flip-card-back {/*How To - Flip Card W3school*/
                 position: absolute;
                 width: 100%;
@@ -46,12 +40,10 @@ $username = $_SESSION['username'];
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
             }
-
             .flip-card-front {/*How To - Flip Card W3school*/
                 background-color: #95D2B3;
                 color: black;
             }
-
             .flip-card-back {/*How To - Flip Card W3school*/
                 background-color: #55AD9B;
                 color: white;
@@ -97,10 +89,9 @@ $username = $_SESSION['username'];
 
                 if ($result->num_rows > 0){
                     while($row = mysqli_fetch_array($result)) {
-                        echo "<option value=\"$row[0]\">$row[0]</option>";//How TO - Custom Select Box W3School
+                        echo "<option value=\"$row[0]\">$row[0]</option>";//HowTO - Custom Select Box W3School 
                     }
                 }
-
                 ?>
             </select>
             <input type="submit" value="Select" name ="select"><br><br>
@@ -136,7 +127,5 @@ $username = $_SESSION['username'];
                 echo "<p>No table selected</p>";
             }
         ?>
-        
-
     </body>
 </html>
