@@ -4,7 +4,6 @@ if(!isset($_SESSION['authuser'])){
     header('Location: login.php');
 }
 $username = $_SESSION['username'];
-
 ?>
 <!DOCTYPE html>
 <html lang= "en">
@@ -13,8 +12,6 @@ $username = $_SESSION['username'];
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-
-         
     </head>
     <body>
         <header>
@@ -40,7 +37,6 @@ $username = $_SESSION['username'];
                 <li><a href="edit_profile.php">Edit Profile</a></li>
             </ul>
         </nav>
-        
         <div>
             <form action="" method="post">
                 <label for="deckname">Deck Name: </label>
@@ -57,8 +53,8 @@ $username = $_SESSION['username'];
                 $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
                 mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
 
-                $query = "SELECT deck_name FROM deck_info WHERE EXISTS(/*SQL EXISTS Operator W3School*/
-                    SELECT deck_name FROM deck_info WHERE deck_name = '$deckname')                   
+                $query = "SELECT deck_name, user_id FROM deck_info WHERE EXISTS(/*SQL EXISTS Operator W3School*/
+                    SELECT deck_name FROM deck_info WHERE deck_name = '$deckname' and user_id = '$username')                   
                 ";
                 $result = mysqli_query($db, $query) or die(mysqli_error($db));    
                 $row = mysqli_num_rows($result);
@@ -67,24 +63,23 @@ $username = $_SESSION['username'];
                 }else{
                     $query = "INSERT INTO deck_info(user_id, deck_name)
                     VALUES('$username','$deckname')";
-            mysqli_query($db,$query) or die(mysqli_error($db));
-            
-            $query = "SELECT deck_id FROM deck_info WHERE deck_name = '$deckname' AND user_id = '$username'";
-
-            $result = mysqli_query($db,$query) or die(mysqli_error($db));
-            $row = mysqli_fetch_assoc($result);
-            $ans = $row["deck_id"];
-            $ans = 'table' . $ans;
-            $query = "CREATE TABLE $ans (/*SQL PRIMARY KEY Constraint W3School*/
-                    word_id INT AUTO_INCREMENT PRIMARY KEY,
-                    word_front VARCHAR(255) NOT NULL,
-                    word_back VARCHAR(255) NOT NULL
-            );"
-            ;
-            mysqli_query($db,$query) or die(mysqli_error($db));
-            echo "<script>alert('Deck Added!')</script>";
-        }
+                    
+                mysqli_query($db,$query) or die(mysqli_error($db));
+                $query = "SELECT deck_id FROM deck_info WHERE deck_name = '$deckname' AND user_id = '$username'";
+                $result = mysqli_query($db,$query) or die(mysqli_error($db));
+                $row = mysqli_fetch_assoc($result);
+                $ans = $row["deck_id"];
+                $ans = 'table' . $ans;
+                $query = "CREATE TABLE $ans (/*SQL PRIMARY KEY Constraint W3School*/
+                        word_id INT AUTO_INCREMENT PRIMARY KEY,
+                        word_front VARCHAR(255) NOT NULL,
+                        word_back VARCHAR(255) NOT NULL
+                );"
+                ;
+                mysqli_query($db,$query) or die(mysqli_error($db));
+                echo "<script>alert('Deck Added!')</script>";
                 }
+            }
 
         ?>
     </body>
