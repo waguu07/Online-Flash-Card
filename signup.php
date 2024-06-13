@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Online Flash Card - Sign Up</title>
         <link rel="stylesheet" href="style.css">
-
     </head>
     <body>
         <div class="prompt">
@@ -14,21 +13,20 @@
             </h1>
             <form id ="form_id" method="post">
                 <div class="identify">
-                    <label for="username" id="lab">Username: </label>    
+                    <label for="username" id="lab">Username<span class="required">*</span>: </label>    
                     <input type = "text" id = "username" name = "username" required><br>
                     <label for="email" id = lab>Email: </label>    
                     <input type = "email" id = "email" name = "email"><br>
-                    <label for="password" id = lab>Password: </label>    
+                    <label for="password" id = lab>Password<span class="required">*</span>: </label>    
                     <input type = "password" id = "password" name = "password" required><br>
-                    <label for= "password" id = lab>Confirm Password: </label>    
+                    <label for= "password" id = lab>Confirm Password<span class="required">*</span>: </label>    
                     <input type = "password" id = "c_password" name = "c_password" required><br>
                     
-                    <input type="submit" id = "button" value= "submit" name = "submit"> 
+                    <input type="submit" id = "button" value= "Submit" name = "submit"> 
                 </div>
                 <br>
                 <p>Already have an account?  <a href="login.php">Login</a></p>
                 <?php
-
                     if(isset($_POST['submit'])){
                         $id = $_POST['username'];
                         $password = $_POST['password'];
