@@ -4,7 +4,6 @@ if(!isset($_SESSION['authuser'])){
     header('Location: login.php');
 }
 $username = $_SESSION['username'];
-
 ?>
 <!DOCTYPE html>
 <html lang= "en">
@@ -13,7 +12,6 @@ $username = $_SESSION['username'];
         <meta charset = "utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-
     </head>
     <body>
         <header>
@@ -47,11 +45,20 @@ $username = $_SESSION['username'];
                 <li class="current"><a href="edit_profile.php">Edit Profile</a></li>
             </ul>
         </nav>
-        
+        <?php
+        $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
+        mysqli_select_db($db, 'decksite') or die(mysqli_error($db));
+        $query = "SELECT user_email FROM login_info WHERE user_id = '$username'";
+        $result = mysqli_query($db, $query) or die(mysqli_error($db));
+        $row = mysqli_fetch_assoc($result);
+        $ans = $row["user_email"];
+        ?>
         <div class="identify">
             <form action="change_profile.php" method="post">
-            <label for="email" id = lab>Email: </label>    
-                <input type = "email" id = "email" name = "email"><br>
+            <label for="email" id = lab>Email: </label>
+                <?php
+                    echo "<input type = 'email' id = 'email' name = 'email' placeholder='$ans'><br>"
+                ?>
                 <label for="password" id = lab>Password: </label>    
                 <input type = "password" id = "password" name = "password"><br>
                 <label for= "newpassword" id = lab>New Password: </label>    
