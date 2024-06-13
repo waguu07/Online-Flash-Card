@@ -4,7 +4,6 @@ if(!isset($_SESSION['authuser'])){
     header('Location: login.php');
 }
 $username = $_SESSION['username'];
-
 ?>
 <!DOCTYPE html>
 <html lang= "en">
@@ -14,8 +13,6 @@ $username = $_SESSION['username'];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <style>
-
-            
             .collapsible {/*How TO - Collapse W3school*/
                 font-family: monospace;
                 text-decoration: none;
@@ -32,11 +29,9 @@ $username = $_SESSION['username'];
                 text-align: center;
                 font-size: 20px;
             }
-
             .active, .collapsible:hover {/*How TO - Collapse W3school*/
                 background-color: #006769; 
             }
-
             .content {/*How TO - Collapse W3school*/
                 padding: 0 18px;
                 display: none;
@@ -75,7 +70,6 @@ $username = $_SESSION['username'];
                 <input type="text" id="search" name="search">
                 <input type="submit" value="search"><br>
             </form>
-
         </div>
         <?php
         $db = mysqli_connect('localhost', 'root', '') or die ('Unable to connect');
